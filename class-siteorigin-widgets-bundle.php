@@ -27,6 +27,7 @@ class SiteOriginWidgetsBundle extends Compatibility {
     add_filter('set_url_scheme', array($this, 'set_url_scheme'), 20, 3);
     add_filter('pre_set_transient_sow:cleared', array($this, 'clear_file_cache'), 20, 3);
     add_filter('siteorigin_widgets_sanitize_instance', array($this, 'delete_file'), 10, 3);
+    add_filter('stateless_skip_cache_busting', array($this, 'skip_cache_busting'), 10, 2);
     // Manual sync from Sync tab.
     do_action('sm:sync::register_dir', '/siteorigin-widgets/');
   }
@@ -79,5 +80,26 @@ class SiteOriginWidgetsBundle extends Compatibility {
     $file = 'siteorigin-widgets/' . $name . '.css';
     do_action('sm:sync::deleteFile', $file);
     return $new_instance;
+  }
+
+  /**
+   * Skip cache busting while activating/deactivating SO widget.
+   * @param $new_instance
+   * @param $form_options
+   * @param $so_widget
+   * @return mixed
+   */
+  public function skip_cache_busting($return, $filename) {
+    $back_trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
+    foreach ($back_trace as $trace) {
+      if ( isset($trace['file']) && strpos($trace['file'], 'so-widgets-bundle') !== false ) {
+        if ( isset($trace['function']) && $trace['function'] === 'sanitize_file_name' ) {
+          return $filename;
+        }
+      }
+    }
+
+    return $return;
   }
 }

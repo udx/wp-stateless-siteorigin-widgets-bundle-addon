@@ -15,6 +15,11 @@ use wpCloud\StatelessMedia\WPStatelessStub;
  */
 
 class ClassSiteOriginWidgetsBundleTest extends TestCase {
+  public static $backtrace = [
+    'file' => 'so-widgets-bundle',
+    'function' => 'sanitize_file_name',
+  ];
+
   const TEST_URL = 'https://test.test';
   const UPLOADS_URL = self::TEST_URL . '/uploads';
   const TEST_FILE = 'siteorigin-widgets/style.css';
@@ -31,6 +36,11 @@ class ClassSiteOriginWidgetsBundleTest extends TestCase {
   public function setUp(): void {
 		parent::setUp();
 		Monkey\setUp();
+
+    self::$backtrace = [
+      'file' => 'so-widgets-bundle',
+      'function' => 'sanitize_file_name',
+    ];
 
     // WP mocks
     Functions\when('wp_upload_dir')->justReturn( self::TEST_UPLOAD_DIR );
@@ -57,6 +67,7 @@ class ClassSiteOriginWidgetsBundleTest extends TestCase {
     self::assertNotFalse( has_filter('set_url_scheme', [ $siteOriginWidgetsBundle, 'set_url_scheme' ]) );
     self::assertNotFalse( has_filter('pre_set_transient_sow:cleared', [ $siteOriginWidgetsBundle, 'clear_file_cache' ]) );
     self::assertNotFalse( has_filter('siteorigin_widgets_sanitize_instance', [ $siteOriginWidgetsBundle, 'delete_file' ]) );
+    self::assertNotFalse( has_filter('stateless_skip_cache_busting', [ $siteOriginWidgetsBundle, 'skip_cache_busting' ]) );
   }
 
   public function testShouldChangeUploadUrl() {
@@ -107,4 +118,28 @@ class ClassSiteOriginWidgetsBundleTest extends TestCase {
       $siteOriginWidgetsBundle->delete_file(null, null, $so_widget) 
     );
   }
+
+  public function testShouldSkipCacheBusting() {
+    $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
+
+    $this->assertEquals(
+      self::TEST_FILE,
+      $siteOriginWidgetsBundle->skip_cache_busting(null, self::TEST_FILE) 
+    );
+  }
+
+  public function testShouldNotSkipCacheBusting() {
+    $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
+
+    self::$backtrace = [];
+
+    $this->assertEquals(
+      null,
+      $siteOriginWidgetsBundle->skip_cache_busting(null, self::TEST_FILE) 
+    );
+  }
+}
+
+function debug_backtrace() {
+  return [ ClassSiteOriginWidgetsBundleTest::$backtrace ];
 }
