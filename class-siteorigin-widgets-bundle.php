@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Compatibility Plugin Name: SiteOrigin Widgets Bundle
+ * Compatibility Plugin URI: https://wordpress.org/plugins/so-widgets-bundle/
+ *
+ * Compatibility Description: Sync SiteOrigin Widgets Bundle CSS files with GCS.
+ *
+ */
+
 namespace WPSL\SiteOriginWidgetsBundle;
 
 use wpCloud\StatelessMedia\Compatibility;
