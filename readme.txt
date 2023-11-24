@@ -1,7 +1,7 @@
 === WP-Stateless - SiteOrigin Widgets Bundle Addon ===
 Contributors: usability_dynamics, andypotanin, ideric, maxim.peshkov, planvova, obolgun
 Donate link: https://udx.io
-Tags: siteorigin, widget, css, google, google cloud, google cloud storage, cdn, uploads, media, stateless, backup, siteorigin, widget
+Tags: siteorigin, widget, visual css, google, google cloud, google cloud storage, cdn, uploads, media, stateless, backup
 License: GPLv2 or later
 Requires PHP: 8.0
 Requires at least: 5.0
