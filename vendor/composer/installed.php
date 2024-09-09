@@ -3,7 +3,7 @@
         'name' => 'udx/wp-stateless-siteorigin-widgets-bundle-addon',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '56175099070f22f95281b703f2f3aaacf4820447',
+        'reference' => 'fc6902b769d4555260945f11dfe8e90dd474c96b',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'udx/wp-stateless-siteorigin-widgets-bundle-addon' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '56175099070f22f95281b703f2f3aaacf4820447',
+            'reference' => 'fc6902b769d4555260945f11dfe8e90dd474c96b',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -149,6 +149,39 @@ class ClassSiteOriginWidgetsBundleTest extends TestCase {
       $siteOriginWidgetsBundle->skip_cache_busting(null, self::TEST_FILE) 
     );
   }
+
+  public function testShouldUpdateArgs() {
+    $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
+
+    $args = $siteOriginWidgetsBundle->sync_args([], self::TEST_FILE, '', false);
+
+    self::assertTrue( isset( $args['source'] ) );
+    self::assertTrue( isset( $args['source_version'] ) );
+    self::assertEquals( 'SiteOrigin Widgets Bundle', $args['source'] );
+    self::assertFalse( isset( $args['name_with_root'] ) );
+  }
+
+  public function testShouldUpdateArgsStateless() {
+    $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
+
+    ud_get_stateless_media()->set('sm.mode', 'stateless');
+
+    $args = $siteOriginWidgetsBundle->sync_args([], self::TEST_FILE, '', false);
+
+    self::assertTrue( isset( $args['source'] ) );
+    self::assertTrue( isset( $args['source_version'] ) );
+    self::assertEquals( 'SiteOrigin Widgets Bundle', $args['source'] );
+    self::assertTrue( isset( $args['name_with_root'] ) );
+  }
+
+  public function testShouldNotUpdateArgs() {
+    $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
+
+    self::assertEquals(
+      0,
+      count( $siteOriginWidgetsBundle->sync_args([], self::TEST_URL, '', false) )
+    );
+  }
 }
 
 function debug_backtrace() {
