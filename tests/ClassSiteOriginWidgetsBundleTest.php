@@ -66,18 +66,29 @@ class ClassSiteOriginWidgetsBundleTest extends TestCase {
 
     self::assertNotFalse( has_filter('set_url_scheme', [ $siteOriginWidgetsBundle, 'set_url_scheme' ]) );
     self::assertNotFalse( has_filter('pre_set_transient_sow:cleared', [ $siteOriginWidgetsBundle, 'clear_file_cache' ]) );
-    self::assertNotFalse( has_filter('siteorigin_widgets_sanitize_instance', [ $siteOriginWidgetsBundle, 'delete_file' ]) );
+    self::assertNotFalse( has_filter('siteorigin_widgets_stylesheet_cleared', [ $siteOriginWidgetsBundle, 'widgets_stylesheet_cleared' ]) );
     self::assertNotFalse( has_filter('stateless_skip_cache_busting', [ $siteOriginWidgetsBundle, 'skip_cache_busting' ]) );
+    self::assertNotFalse( has_filter('sm:sync::syncArgs', [ $siteOriginWidgetsBundle, 'sync_args' ]) );
+
+    self::assertNotFalse( has_action('siteorigin_widgets_stylesheet_added', [ $siteOriginWidgetsBundle, 'widgets_stylesheet_added' ]) );
+    self::assertNotFalse( has_action('siteorigin_widgets_stylesheet_deleted', [ $siteOriginWidgetsBundle, 'delete_file' ]) );
+  }
+
+  public function testShouldCountHooks() {
+    $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
+
+    Functions\expect('add_action')->times(2);
+    Functions\expect('add_filter')->times(5);
+
+    $siteOriginWidgetsBundle->module_init([]);
   }
 
   public function testShouldChangeUploadUrl() {
     $siteOriginWidgetsBundle = new SiteOriginWidgetsBundle();
 
-    Actions\expectDone('sm:sync::syncFile')->once();
-
     $this->assertEquals(
-      self::DST_URL,
-      $siteOriginWidgetsBundle->set_url_scheme(self::SRC_URL, null, null) 
+      '/' . self::TEST_FILE,
+      $siteOriginWidgetsBundle->set_url_scheme(self::SRC_URL) 
     );
   }
 
