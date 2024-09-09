@@ -5,7 +5,7 @@ Tags: siteorigin, widget, visual css, google, google cloud, google cloud storage
 License: GPLv2 or later
 Requires PHP: 8.0
 Requires at least: 5.0
-Tested up to: 6.4.1
+Tested up to: 6.6.1
 Stable tag: 0.0.1
 
 Provides compatibility between the SiteOrigin Widgets Bundle and the WP-Stateless plugins.
@@ -20,7 +20,7 @@ Provides compatibility between the [SiteOrigin Widgets Bundle](https://wordpress
 
 = Notes =
 
-* Tested with SiteOrigin Widgets Bundle plugin version 1.56.0
+* Tested with SiteOrigin Widgets Bundle plugin version 1.63.0
 
 = Support, Feedback, & Contribute =
 

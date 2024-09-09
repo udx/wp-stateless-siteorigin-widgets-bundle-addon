@@ -1,6 +1,6 @@
 <?php
 
-namespace WPSL\SiteOriginWidgetsBundle;
+namespace SLCA\SiteOriginWidgetsBundle;
 
 use PHPUnit\Framework\TestCase;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

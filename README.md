@@ -8,7 +8,7 @@ Provides compatibility between the [SiteOrigin Widgets Bundle](https://wordpress
 
 ### Notes
 
-* Tested with SiteOrigin Widgets Bundle plugin version 1.56.0
+* Tested with SiteOrigin Widgets Bundle plugin version 1.63.0
 
 ### Support, Feedback, & Contribute
 
