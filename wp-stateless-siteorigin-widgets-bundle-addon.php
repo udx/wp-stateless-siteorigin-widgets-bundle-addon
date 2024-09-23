@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP-Stateless - SiteOrigin Widgets Bundle Addon
- * Plugin URI: https://stateless.udx.io/addons/siteorigin-page-builder/
+ * Plugin URI: https://stateless.udx.io/addons/siteorigin-widgets-bundle/
  * Description: Provides compatibility between the SiteOrigin Widgets Bundle and the WP-Stateless plugins.
  * Author: UDX
  * Version: 0.0.1
