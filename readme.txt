@@ -5,8 +5,8 @@ Tags: siteorigin widgets bundle, site origin addon extension, google cloud stora
 License: GPLv2 or later
 Requires PHP: 8.0
 Requires at least: 5.0
-Tested up to: 6.6.2
-Stable tag: 0.0.1
+Tested up to: 6.8
+Stable tag: 0.0.2
 
 Provides compatibility between the SiteOrigin Widgets Bundle and the WP-Stateless plugins.
 
@@ -20,7 +20,7 @@ Provides compatibility between the [SiteOrigin Widgets Bundle](https://wordpress
 
 = Notes =
 
-* Tested with SiteOrigin Widgets Bundle plugin version 1.63.1
+* Tested with SiteOrigin Widgets Bundle plugin version 1.69.3
 
 = Support, Feedback, & Contribute =
 
@@ -43,6 +43,8 @@ To ensure new releases cause as little disruption as possible, we rely on early 
 == Upgrade Notice ==
 
 == Changelog ==
+= 0.0.2 =
+- Tested with `SiteOrigin Widgets Bundle` version 1.69.3
 
 = 0.0.1 =
 

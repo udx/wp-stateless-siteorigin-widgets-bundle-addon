@@ -5,12 +5,12 @@
  * Plugin URI: https://stateless.udx.io/addons/siteorigin-widgets-bundle/
  * Description: Provides compatibility between the SiteOrigin Widgets Bundle and the WP-Stateless plugins.
  * Author: UDX
- * Version: 0.0.1
+ * Version: 0.0.2
  * Text Domain: wp-stateless-siteorigin-widgets-bundle-addon
  * Author URI: https://udx.io
  * License: GPLv2 or later
  * 
- * Copyright 2024 UDX (email: info@udx.io)
+ * Copyright 2025 UDX (email: info@udx.io)
  */
 
 namespace SLCA\SiteOriginWidgetsBundle;
